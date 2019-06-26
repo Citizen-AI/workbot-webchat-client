@@ -7,7 +7,7 @@ converter.setOption('openLinksInNewWindow', true);
 
 var Botkit = {
     config: {
-        ws_url: (location.protocol === 'https:' ? 'wss' : 'ws') + '://' + location.hostname + ':3000',
+        ws_url: (location.protocol === 'https:' ? 'wss' : 'ws') + '://rentbot-webchat-server.herokuapp.com',
         reconnect_timeout: 3000,
         max_reconnect: 5,
         enable_history: false,
