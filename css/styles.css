@@ -4,31 +4,48 @@
 }
 
 body,
+input[type=text],
+button {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+body,
 html {
   margin: 0;
   padding: 0;
   font-size: 18px;
   background-color: #FFF;
-  font-family: 'Source Sans Pro', sans-serif;
 }
 
 body {
   background: url('../images/roof-bg2.jpg');
   background-size: cover;
   background-position: bottom;
-  padding-top: 25px;
+  padding: 30px 25px 0;
 }
 
 .wrapper {
   position: relative;
   max-width: 600px;
-  height: calc(100vh - 115px);
+  height: calc(100vh - 130px);
   margin: 0 auto;
 }
 .wrapper:after {
   content: "";
   display: table;
   clear: both;
+}
+
+h1 {
+  background: url(../images/rentbot.png) no-repeat;
+  background-size: 70px;
+  padding: 1px 0 0 81px;
+  margin: 14px 13px;
+}
+h1 span {
+  font-size: 17px;
+  color: #a5a5a5;
+  padding-left: 2px;  
 }
 
 .box {
@@ -51,14 +68,6 @@ footer {
   text-align: center;
 }
 
-.hero {
-  text-align: center;
-  padding: 2rem;
-}
-.hero h1 {
-  font-size: 4rem;
-  margin: 0;
-}
 
 a {
   color: #a795ef;
@@ -160,22 +169,6 @@ a.button:hover {
   padding: 0.25rem;
   display: block;
 }
-#message_window .powered_by {
-  flex-shrink: 0;
-  text-align: center;
-  border-bottom: 1px solid #CCC;
-  font-size: 16px;
-  padding: 0.25rem;
-  color: #666;
-}
-#message_window .powered_by a {
-  text-decoration: none;
-  color: #666;
-}
-#message_window .powered_by img {
-  position: relative;
-  top: 2px;
-}
 #message_window section {
   flex-grow: 1;
   flex-direction: column-reverse;
@@ -197,12 +190,13 @@ a.button:hover {
   border: none;
 }
 #message_window footer button {
-  width: 50px;
+  width: 61px;
   background: none;
   border: 0;
   cursor: pointer;
   color: blue;
   font-weight: bold;
+  font-size: 20px;
 }
 #message_window form {
   display: flex;
@@ -213,7 +207,7 @@ a.button:hover {
   display: none;
 }
 #message_window .message {
-  font-size: 14px;
+  font-size: 16px;
   padding: 0.5rem;
   background: #F0F0F0;
   color: #333;
@@ -255,7 +249,7 @@ a.button:hover {
 }
 #message_window .message.outgoing {
   float: right;
-  background: #a795ef;
+  background: #7eaefd;
   color: white;
 }
 #message_window #message_replies {
@@ -349,3 +343,10 @@ a.button:hover {
 #welcome {
   margin-left: 440px;
 }
+
+p.footer {
+  text-align: center;
+  font-size: 0.8em;
+  margin-top: 30px;
+  padding-bottom: 50px; }
+
