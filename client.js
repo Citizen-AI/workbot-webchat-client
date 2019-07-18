@@ -2,12 +2,17 @@
  * Copyright (c) Microsoft Corporation. All rights reserved.
  * Licensed under the MIT License.
  */
+
+const url = new URL(window.location.href)
+let server = url.searchParams.get('server')
+if(!server) server = 'rentbot-webchat-server.herokuapp.com'
+
 var converter = new showdown.Converter();
 converter.setOption('openLinksInNewWindow', true);
 
 var Botkit = {
     config: {
-        ws_url: (location.protocol === 'https:' ? 'wss' : 'ws') + '://rentbot-webchat-server.herokuapp.com',
+        ws_url: (location.protocol === 'https:' ? 'wss' : 'ws') + '://' + server,
         reconnect_timeout: 3000,
         max_reconnect: 5,
         enable_history: false,

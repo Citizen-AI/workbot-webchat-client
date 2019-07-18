@@ -9,12 +9,20 @@ html {
   padding: 0;
   font-size: 18px;
   background-color: #FFF;
-  font-family: "helvetica", sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+body {
+  background: url('../images/roof-bg2.jpg');
+  background-size: cover;
+  background-position: bottom;
+  padding-top: 25px;
 }
 
 .wrapper {
   position: relative;
-  max-width: 1000px;
+  max-width: 600px;
+  height: calc(100vh - 115px);
   margin: 0 auto;
 }
 .wrapper:after {
@@ -122,18 +130,16 @@ a.button:hover {
 /* chat client */
 #message_window {
   background: #FFFFFF;
-  border-left: 1px solid #CCC;
-  border-right: 1px solid #CCC;
-  /*height: 500px;
-  width: 320px;*/
+  border: 1px solid #CCC;
+  border-radius: 8px;
   height: 100%;
   width: 100%;
-  /*margin: 2rem auto;*/
   display: flex;
   flex-direction: column;
-  font-family: "helvetica", sans-serif;
 }
 #message_window .disconnected {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
   background: #FFFFCC;
   padding: 0.25rem;
 }
@@ -141,6 +147,8 @@ a.button:hover {
   display: none;
 }
 #message_window .offline {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
   display: none;
 }
 #message_window.offline .disconnected {
@@ -156,7 +164,7 @@ a.button:hover {
   flex-shrink: 0;
   text-align: center;
   border-bottom: 1px solid #CCC;
-  font-size: 14px;
+  font-size: 16px;
   padding: 0.25rem;
   color: #666;
 }
