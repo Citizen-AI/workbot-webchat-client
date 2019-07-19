@@ -3,8 +3,8 @@
  * Licensed under the MIT License.
  */
 
-const url = new URL(window.location.href)
-let server = url.searchParams.get('server')
+const page_url = new URL(window.location.href)
+let server = page_url.searchParams.get('server')
 if(!server) server = 'rentbot-webchat-server.herokuapp.com'
 
 var converter = new showdown.Converter();
@@ -27,6 +27,13 @@ var Botkit = {
         this.message_window.addEventListener(event, function (evt) {
             handler(evt.detail);
         });
+    },
+    once: function (event, handler) {
+        once_handler = evt => {
+          handler(evt.detail)
+          this.message_window.removeEventListener(event, once_handler)
+        }
+        this.message_window.addEventListener(event, once_handler)
     },
     trigger: function (event, details) {
         var event = new CustomEvent(event, {
@@ -524,4 +531,9 @@ var Botkit = {
     // the DOM will be available here
 
     Botkit.boot();
+    
+    Botkit.renderMessage({ isTyping: true })
+
+    Botkit.once('connected', () => Botkit.quietSend('[Web] get started'))
+    
 })();
