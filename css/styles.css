@@ -230,16 +230,22 @@ a.button:hover {
 #message_window .button_message {
   margin: 0 0 10px;
   border-radius: 4px;
-  border-color: #333;
-  background-color: #eee;
+  border-color: #bbb;
+  background-color: #f3f3f3;
   border-style: solid;
   color: black;
   border-width: 1px;
   padding: 0.25rem 1rem;
   text-decoration: none;
   text-align: center;
-  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
+  /* box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25); */
   display: block;
+}
+#message_window .button_message:hover {
+  background-color: #f8f8f8; 
+}
+#message_window .button_message:active {
+  background-color: white; 
 }
 #message_window .button_message:last-child {
   margin-bottom: 0;
@@ -276,16 +282,15 @@ a.button:hover {
 #message_window #message_replies a {
   text-decoration: none;
   display: block;
-  border: 1px solid #a795ef;
-  color: #a795ef;
+  border: 1px solid #4385f3;
+  color: #4385f3;
   border-radius: 16px;
   padding: 0.25rem 1rem;
   font-size: 14px;
   cursor: pointer;
 }
 #message_window #message_replies a:hover {
-  background: #a795ef;
-  color: #FFF;
+  background: #f7f7f7;
 }
 
 /* typing indicator CSS based on code by Joseph Fusco -> https://codepen.io/fusco/pen/XbpaYv */
@@ -362,8 +367,6 @@ p.footer {
     }
 
     .wrapper {
-      width: 100%;
-      height: calc(100vh - 40px);
       margin: 0;
     }
 
