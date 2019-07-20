@@ -194,7 +194,7 @@ a.button:hover {
   background: none;
   border: 0;
   cursor: pointer;
-  color: blue;
+  color: #4385f3;
   font-weight: bold;
   font-size: 20px;
 }
@@ -360,7 +360,7 @@ p.footer {
   padding-bottom: 50px; }
 
 
-  @media only screen and (max-device-width: 500px) {
+  @media only screen and (max-width: 600px) {
     body {
       background: #eee;
       padding: 0;
@@ -368,12 +368,16 @@ p.footer {
 
     .wrapper {
       margin: 0;
+      height: calc(100vh - 40px);
     }
 
     #message_window {
       border: 0; 
       border-bottom: 1px solid #CCC;
       border-radius: 0;
+    }
+    #message_window .message {
+      max-width: inherit;
     }
 
     h1 {

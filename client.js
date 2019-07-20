@@ -501,25 +501,8 @@ var Botkit = {
             }
         });
 
-
-        if (window.self !== window.top) {
-            // this is embedded in an iframe.
-            // send a message to the master frame to tell it that the chat client is ready
-            // do NOT automatically connect... rather wait for the connect command.
-            that.parent_window = window.parent;
-            window.addEventListener("message", that.receiveCommand, false);
-            that.sendEvent({
-                type: 'event',
-                name: 'booted'
-            });
-            console.log('Messenger booted in embedded mode');
-
-        } else {
-
-            console.log('Messenger booted in stand-alone mode');
-            // this is a stand-alone client. connect immediately.
-            that.connect(user);
-        }
+        console.log('Messenger booted in stand-alone mode');
+        that.connect(user);
 
         return that;
     }
@@ -534,6 +517,8 @@ var Botkit = {
     
     Botkit.renderMessage({ isTyping: true })
 
-    Botkit.once('connected', () => Botkit.quietSend('[Web] get started'))
+    Botkit.once('connected', () => {
+      Botkit.quietSend('[Web] get started')
+    })
     
 })();
