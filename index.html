@@ -96,9 +96,9 @@
             <div id="message_replies">
             </div>
             <footer>
-                <form onsubmit="Botkit.send(Botkit.input.value, event)">
+                <form>
                     <input type="text" autocomplete="off" id="messenger_input" placeholder="Type here..." />
-                    <button type="submit">Send</button>
+                    <button type="submit" onclick="Botkit.send(Botkit.input.value, event)">Send</button>
                 </form>
             </footer>
         </div>
