@@ -510,15 +510,19 @@ var Botkit = {
 
 
 (function () {
-    // your page initialization code here
-    // the DOM will be available here
 
-    Botkit.boot();
+    let seen_before = false
+    if (Botkit.getCookie('botkit_guid')) seen_before = true
+
+    Botkit.boot()
     
     Botkit.renderMessage({ isTyping: true })
 
     Botkit.once('connected', () => {
-      Botkit.quietSend('[Web] get started')
+      if(seen_before)
+        Botkit.quietSend('[Web] welcome back')
+      else
+        Botkit.quietSend('[Web] get started')
     })
     
 })();
