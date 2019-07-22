@@ -10,6 +10,8 @@ if(!server) server = 'rentbot-webchat-server.herokuapp.com'
 var converter = new showdown.Converter();
 converter.setOption('openLinksInNewWindow', true);
 
+let user_has_sent_something = false; // used to later decide whether to send GTM event
+
 var Botkit = {
     config: {
         ws_url: (location.protocol === 'https:' ? 'wss' : 'ws') + '://' + server,
@@ -98,6 +100,11 @@ var Botkit = {
         this.input.value = '';
 
         this.trigger('sent', message);
+
+        if(!user_has_sent_something) {
+          user_has_sent_something = true
+          dataLayer.push({'event':'user_first_sends'})  // GTM event
+        }
 
         return false;
     },
