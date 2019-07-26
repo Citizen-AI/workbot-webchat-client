@@ -7,7 +7,7 @@ const page_url = new URL(window.location.href)
 let server = page_url.searchParams.get('server')
 if(!server) server = 'rentbot-webchat-server.herokuapp.com'
 
-var converter = new showdown.Converter();
+var converter = new showdown.Converter({ simplifiedAutoLink: true });
 converter.setOption('openLinksInNewWindow', true);
 
 let user_has_sent_something = false; // used to later decide whether to send GTM event
