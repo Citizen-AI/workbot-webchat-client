@@ -529,5 +529,8 @@ var Botkit = {
       else
         Botkit.quietSend('[Web] get started')
     })
+
+    handler = event => Botkit.send(event.target.innerText)
+    document.getElementById('example_questions').addEventListener('click', handler)
     
 })();
