@@ -6,6 +6,7 @@
 const page_url = new URL(window.location.href)
 let server = page_url.searchParams.get('server')
 if(!server) server = 'rentbot-webchat-server.herokuapp.com'
+let query = page_url.searchParams.get('query')
 
 var converter = new showdown.Converter({ simplifiedAutoLink: true });
 converter.setOption('openLinksInNewWindow', true);
@@ -521,7 +522,9 @@ var Botkit = {
     Botkit.renderMessage({ isTyping: true })
 
     Botkit.once('connected', () => {
-      if(seen_before)
+      if(query)
+        Botkit.send(query)
+      else if(seen_before)
         Botkit.quietSend('[Web] welcome back')
       else
         Botkit.quietSend('[Web] get started')
