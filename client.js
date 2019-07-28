@@ -135,11 +135,6 @@ var Botkit = {
         return false;
     },
     deliverMessage: function (message) {
-        if (message.text && message.text.length > 250) {
-          console.log('text too long, truncating, see:', message)
-          message.text = message.text.substring(0, 250)
-        }
-
         if (this.options.use_sockets) {
             this.socket.send(JSON.stringify(message));
         } else {
