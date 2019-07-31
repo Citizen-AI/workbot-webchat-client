@@ -155,8 +155,6 @@ a.button:hover {
   display: none;
 }
 #message_window .offline {
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
   display: none;
 }
 #message_window.offline .disconnected {
