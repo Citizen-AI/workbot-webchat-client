@@ -21,15 +21,17 @@ body {
   background: url('../images/roof-bg2.jpg');
   background-size: cover;
   background-position: bottom;
-  padding: 30px 25px 0;
+  padding: 20px 25px 0;
+  color: #444;
 }
 
 .wrapper {
   position: relative;
   max-width: 720px;
-  height: calc(100vh - 130px);
+  height: calc(100vh - 80px);
   margin: 0 auto;
   display: flex;
+  flex-direction: row;
 }
 .wrapper:after {
   content: "";
@@ -37,12 +39,12 @@ body {
   clear: both;
 }
 
-
 h1 {
   background: url(../images/rentbot.png) no-repeat;
   background-size: 70px;
   padding: 1px 0 0 81px;
   margin: 14px 13px;
+  color: #444;
 }
 h1 span {
   font-size: 17px;
@@ -137,7 +139,7 @@ a.button:hover {
 #message_window {
   background: #FFFFFF;
   border: 1px solid #CCC;
-  border-radius: 8px 0 0 8px;
+  border-radius: 0 8px 8px 0;
   height: 100%;
   width: 100%;
   display: flex;
@@ -207,7 +209,6 @@ a.button:hover {
   font-size: 16px;
   padding: 0.5rem;
   background: #F0F0F0;
-  color: #333;
   border-radius: 5px;
   width: auto;
   display: inline-block;
@@ -291,29 +292,47 @@ a.button:hover {
 }
 
 
-.sidebar {
+#sidebar {
   background: #f3f3f3;
   border: 1px solid #CCC;
-  border-left: none;
-  border-radius: 0 8px 8px 0;
-  padding: 10px;
-  max-width: 200px;
+  border-right: none;
+  border-radius: 8px 0 0 8px;
+  padding: 10px 10px 20px 10px;
+  max-width: 230px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 15px;
 }
-.sidebar h2 {
+#sidebar h2 {
   font-size: 14px;
+  margin-top: 0;
 }
-#example_questions {
+.example_queries {
   margin: 0;
   padding: 0;
-  font-size: 14px;
   list-style: none;
 }
-#example_questions li {
+.example_queries li {
   margin-bottom: 8px;
   cursor: pointer;
   color: #4385f3;
 }
+.example_queries li:hover {
+  text-decoration: underline;
+}
 
+.footer { 
+  font-size: 13px;
+}
+.footer a:link,
+.footer a:visited {
+  text-decoration: none;
+}
+.footer a:hover,
+.footer a:active {
+  text-decoration: underline;
+}
 
 /* typing indicator CSS based on code by Joseph Fusco -> https://codepen.io/fusco/pen/XbpaYv */
 .typing-indicator {
@@ -375,46 +394,82 @@ a.button:hover {
   margin-left: 440px;
 }
 
-p.footer {
-  text-align: center;
-  font-size: 0.8em;
-  margin-top: 30px;
-  padding-bottom: 50px; }
 
-
-  @media only screen and (max-width: 600px) {
-    body {
-      background: #eee;
-      padding: 0;
-    }
-
-    .wrapper {
-      margin: 0;
-      height: calc(100vh - 40px);
-    }
-
-    #message_window {
-      border: 0; 
-      border-bottom: 1px solid #CCC;
-      border-radius: 0;
-    }
-    #message_window .message {
-      max-width: inherit;
-    }
-
-    h1 {
-      border-bottom: 1px solid #ccc;
-      margin: 10px 0;
-      padding: 0px 0 10px 90px;
-      background-position-x: 10px;
-    }
-
-    p.footer {
-      margin: 10px 0;
-      padding: 0;
-    }
-
-    .sidebar {
-      display: none;
-    }
+@media only screen and (max-width: 600px) {
+  body {
+    background: #eee;
+    padding: 0;
   }
+
+  .wrapper {
+    margin: 0;
+    height: 100%;
+  }
+
+  #message_window {
+    border: 0; 
+    border-radius: 0;
+  }
+  #message_window .message {
+    max-width: inherit;
+  }
+
+  h1 {
+    border-bottom: 1px solid #ccc;
+    margin: 0;
+    padding: 9px 46px 10px 85px;
+    background-position: 13px 16px;
+    font-size: 27px;
+    background-size: 59px;
+    height: 92px;
+    box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.2);
+  }
+  h1 span {
+    font-size: 15px;
+    padding-left: 0;
+    font-weight: lighter;
+  }
+
+  p.footer {
+    margin: 10px 0;
+    padding: 0;
+  }
+
+  #sidebar {
+    display: none;
+  }
+  #sidebar.visible {
+    display: inherit;
+    position: absolute;
+    top: 92px;
+    z-index: 999;
+    width: 100vw;
+    max-width: inherit;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+    border-radius: 0;
+    box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.2);
+    padding-top: 15px;
+  }
+  #sidebar div {
+    border-top: 1px solid #ddd;
+    padding-top: 15px;
+    margin-top: 20px;
+  }
+  #sidebar div:first-child {
+    border-top: none;
+    padding-top: 0;
+    margin-top: 0;
+  }
+
+  #kebab_menu_icon {
+    cursor: pointer;
+    position: absolute;
+    top: 14px;
+    right: 8px;
+  }
+  #kebab_menu_icon:after  {
+    content: '\2807';
+    font-size: 34px;
+  }  
+}

@@ -21,7 +21,7 @@
         <meta name="msapplication-TileColor" content="#da532c">
         <meta name="msapplication-config" content="favicon/browserconfig.xml">
         <meta name="theme-color" content="#ffffff">
-        <link rel="stylesheet" href="css/styles.css?n=4" />
+        <link rel="stylesheet" href="css/styles.css?n=6" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <meta name="twitter:card" content="player" />
@@ -40,17 +40,41 @@
         <meta property="og:image" content="https://rentbot.nz/chat/images/rentbot-still.png" />
         <meta property="og:url" content="https://rentbot.nz/chat/" />
         <meta property="fb:app_id" content="230273364202659" />
-
       </head>
     <body >
       <div class="wrapper">
-
+        <div id="sidebar">
+            <div>
+              <h2>What people are asking…</h2>
+              <ul class="example_queries">
+                <li>What counts as fair wear and tear?</li>
+                <li>Can I put a cabin on the back lawn?</li>
+                <li>how do i find my bond number?</li>
+                <li>What do I do if my landlady doesn’t lodge my bond</li>
+                <li>aggressive dogs next door</li>
+              </ul>
+            </div>
+            <div>
+              <h2>Rather talk with a human?</h2>
+              <ul class="example_queries">
+                <li>Tenant advocates</li>
+                <li>Community Law</li>
+                <li>Tenancy Services</li>
+              </ul>
+            </div> 
+            <div class="footer">
+                Powered by <a href="https://citizenai.nz">Citizen AI</a>.<br />
+                <nobr>You can</nobr> find <a href="https://facebook.com/rentbotnz" target="_blank">Rentbot on Facebook</a> too.
+            </div>         
+          </div>
+    
         <div id="message_window">
+            <div id="kebab_menu_icon"></div>
             <h1>Rentbot</br>
-              <span>Chat with me now about all your tenancy problems</span>
+              <span>Chat with me for help with <nobr>your tenancy problems</nobr></span>
             </h1>
             <div class="disconnected">
-                Disconnected... reconnecting!
+                Connecting…
             </div>
             <div class="offline">
                 Offline! Reload to reconnect.
@@ -75,10 +99,12 @@
                             {{#each message.buttons}}
                               {{#if this.postback}}
                                 <a href="#" onclick="javscript:Botkit.quietSend(`{{this.payload}}`)" class="button_message">{{this.title}}</a>
+                              {{else if this.map}}
+                                <iframe src="https://www.google.com/maps/embed/v1/search?key=AIzaSyBYTcRWDssK7eRByLCdh0OJJBlF6qQsHZI&q={{this.payload}}" width="100%" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
                               {{else}}
                                 <a href="{{this.payload}}" target="_blank" class="button_message">{{#if this.title}}{{this.title}}{{else}}{{this.payload}}{{/if}}</a>
                               {{/if}}
-                            {{/each}}                              
+                            {{/each}}
                         </div>
                         {{#message.files}}
                           <div class="file_attachment">
@@ -101,22 +127,7 @@
                 </form>
             </footer>
         </div>
-        <div class="sidebar">
-          <h2>What people are asking…</h2>
-          <ul id="example_questions">
-            <li>What counts as fair wear and tear?</li>
-            <li>Can I put a cabin on the back lawn?</li>
-            <li>how do i find my bond number?</li>
-            <li>What do I do if my landlady doesn’t lodge my bond</li>
-            <li>aggressive dogs next door</li>
-          </ul>
-          
         </div>
-        </div>
-        <p class="footer">Powered by <a href="https://citizenai.nz">Citizen AI</a>. Find 
-          <a href="https://facebook.com/rentbotnz" target="_blank">Rentbot on Facebook</a> too.
-        </p>
-
-        <script src="client.js?n=5"></script>
+        <script src="client.js?n=6"></script>
     </body>
 </html>

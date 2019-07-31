@@ -411,7 +411,7 @@ var Botkit = {
         })
 
         that.on('disconnected', function () {
-            that.message_window.className = 'disconnected';
+            // that.message_window.className = 'disconnected';
             that.input.disabled = true;
         });
 
@@ -513,24 +513,30 @@ var Botkit = {
 
 
 (function () {
+  let seen_before = false
+  if (Botkit.getCookie('botkit_guid')) seen_before = true
 
-    let seen_before = false
-    if (Botkit.getCookie('botkit_guid')) seen_before = true
+  Botkit.boot()
+  Botkit.renderMessage({ isTyping: true })
+  Botkit.once('connected', () => {
+    if(query)
+      Botkit.send(query)
+    else if(seen_before)
+      Botkit.quietSend('[Web] welcome back')
+    else
+      Botkit.quietSend('[Web] get started')
+  })
 
-    Botkit.boot()
-    
-    Botkit.renderMessage({ isTyping: true })
+  open_menu = () => document.getElementById('sidebar').classList.add('visible')
+  close_menu = () => document.getElementById('sidebar').classList.remove('visible')
+  toggle_menu = () => document.getElementById('sidebar').classList.contains('visible') ? close_menu() : open_menu()
+  handler = event => {
+    Botkit.send(event.target.innerText)
+    close_menu()
+  }
+  for(let e of document.getElementsByClassName('example_queries')) {
+    e.addEventListener('click', handler)
+  }
 
-    Botkit.once('connected', () => {
-      if(query)
-        Botkit.send(query)
-      else if(seen_before)
-        Botkit.quietSend('[Web] welcome back')
-      else
-        Botkit.quietSend('[Web] get started')
-    })
-
-    handler = event => Botkit.send(event.target.innerText)
-    document.getElementById('example_questions').addEventListener('click', handler)
-    
+  document.getElementById('kebab_menu_icon').addEventListener('click', toggle_menu)
 })();
