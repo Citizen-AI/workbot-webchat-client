@@ -539,4 +539,8 @@ var Botkit = {
   }
 
   document.getElementById('kebab_menu_icon').addEventListener('click', toggle_menu)
+
+  // document.getElementById('kebab_menu_icon').addEventListener('click', toggle_menu)
+  document.getElementsByTagName('h1')[0].addEventListener('click', toggle_menu)
+
 })();
