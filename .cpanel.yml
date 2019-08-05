@@ -2,5 +2,5 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/studentr/workbot.nz/chat/
-    - /bin/cp -R public $DEPLOYPATH/
+    - /bin/cp -R public/. $DEPLOYPATH/
     
