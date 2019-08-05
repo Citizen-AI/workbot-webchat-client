@@ -5,7 +5,7 @@
 
 const page_url = new URL(window.location.href)
 let server = page_url.searchParams.get('server')
-if(!server) server = 'rentbot-webchat-server.herokuapp.com'
+if(!server) server = 'workbot-webchat-server.herokuapp.com'
 let query = page_url.searchParams.get('query')
 
 var converter = new showdown.Converter({ simplifiedAutoLink: true });
@@ -77,7 +77,7 @@ var Botkit = {
         });
 
     },
-    send: function (text, e) {
+    send: function (text, e, gtm_off) {
         var that = this;
         if (e) e.preventDefault();
         if (!text) {
@@ -102,7 +102,7 @@ var Botkit = {
 
         this.trigger('sent', message);
 
-        if(!user_has_sent_something) {
+        if(!user_has_sent_something && !gtm_off) {
           user_has_sent_something = true
           dataLayer.push({'event':'user_first_sends'})  // GTM event
         }
@@ -520,7 +520,7 @@ var Botkit = {
   Botkit.renderMessage({ isTyping: true })
   Botkit.once('connected', () => {
     if(query)
-      Botkit.send(query)
+      Botkit.send(query, null, true)
     else if(seen_before)
       Botkit.quietSend('[Web] welcome back')
     else
