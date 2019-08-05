@@ -1,0 +1,6 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/studentr/rentbot.nz/chat/
+    - /bin/cp -R public $DEPLOYPATH/
+    
