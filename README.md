@@ -7,3 +7,7 @@ I find [autoreload-server](https://www.npmjs.com/package/simple-autoreload-serve
 Use the `server` parameter to override the hardcoded (in `client.js`) server url. E.g.:
 
 > `http://localhost:8080/index.html?server=localhost:3000`
+
+## Thanks to
+
+* https://codepen.io/alandunning/pen/RWRrEW for blinking cursor :)
