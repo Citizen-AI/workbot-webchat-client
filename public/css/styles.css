@@ -52,6 +52,12 @@ h1 span {
   padding-left: 2px;  
 }
 
+a {
+  color: bbffa6;
+  text-decoration: underline;
+}
+
+
 .box {
   border: 2px solid #CCC;
   padding: 1rem calc(1rem - 2px);
@@ -307,10 +313,6 @@ a.button:hover {
   font-size: 14px;
   margin-top: 0;
 }
-#sidebar a {
-  color: bbffa6;
-  text-decoration: underline;
-}
 .example_queries {
   margin: 0;
   padding: 0;
@@ -325,17 +327,6 @@ a.button:hover {
   text-decoration: underline;
 }
 
-.footer { 
-  font-size: 15px;
-}
-.footer a:link,
-.footer a:visited {
-  text-decoration: none;
-}
-.footer a:hover,
-.footer a:active {
-  text-decoration: underline;
-}
 
 /* typing indicator CSS based on code by Joseph Fusco -> https://codepen.io/fusco/pen/XbpaYv */
 .typing-indicator {
@@ -397,6 +388,10 @@ a.button:hover {
   margin-left: 440px;
 }
 
+p.source {
+  font-size: 14px;
+  color: #6f9a66;
+}
 
 
 @media only screen and (max-width: 600px) {
@@ -447,7 +442,7 @@ a.button:hover {
     background: #405042;
     transform: translateY(-150%);
     position: absolute;
-    top: 92px;
+    top: 100px;
     z-index: 5;
     width: 100vw;
     max-width: inherit;
