@@ -13,7 +13,7 @@
         <title>Workbot — a chatbot that helps workers with employment problems</title>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js"></script>
         <script src="https://cdn.rawgit.com/showdownjs/showdown/1.7.4/dist/showdown.min.js"></script>
-        <link href="https://fonts.googleapis.com/css?family=VT323&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
         <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
@@ -23,7 +23,7 @@
         <meta name="msapplication-TileColor" content="#da532c">
         <meta name="msapplication-config" content="favicon/browserconfig.xml">
         <meta name="theme-color" content="#ffffff">
-        <link rel="stylesheet" href="css/styles.css?n=16" />
+        <link rel="stylesheet" href="css/styles.css?n=17" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <meta name="twitter:card" content="player" />
@@ -110,7 +110,7 @@
                         {{#message.files}}
                           <div class="file_attachment">
                           {{#if image}}
-                            <a href="{{{url}}}" target="workbot_big_image"><img src="{{{url}}}" alt="{{{url}}}" /></a>
+                            <a href="{{{url}}}" alt="Click for full size" target="workbot_big_image"><img src="{{{url}}}" alt="{{{url}}}" /></a>
                           {{else}}
                             <a href="{{{url}}}" title="{{{url}}}">{{{url}}}</a>
                           {{/if}}
