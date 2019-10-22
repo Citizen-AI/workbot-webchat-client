@@ -5,7 +5,7 @@
 
 const page_url = new URL(window.location.href)
 let server = page_url.searchParams.get('server')
-if(!server) server = 'workbot-webchat-server.herokuapp.com'
+if(!server && default_server) server = default_server // defined in env.js
 let query = page_url.searchParams.get('query')
 
 var converter = new showdown.Converter({ simplifiedAutoLink: true });
