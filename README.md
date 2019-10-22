@@ -8,8 +8,12 @@ Use the `server` parameter to override the hardcoded (in `client.js`) server url
 
 > `http://localhost:8080/index.html?server=localhost:3000`
 
+Use the `query` parameter to start the conversation from a particular point. E.g.:
+
+> `http://localhost:8080/index.html?query=What do I do if I've been fired?`
+
+
 ## Thanks to
 
 * https://github.com/howdyai/botkit-starter-web, which this is based on
-
-
+* http://showdownjs.com/, which turns in-message links into clickable links
