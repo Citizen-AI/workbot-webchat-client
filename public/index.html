@@ -108,6 +108,16 @@
                                 <a href="{{this.payload}}" target="_blank" class="button_message">{{#if this.title}}{{this.title}}{{else}}{{this.payload}}{{/if}}</a>
                               {{/if}}
                             {{/each}}
+
+                            {{#each message.attachment.payload.elements}}
+                            <div>
+                              <h3>{{title}}</h3>
+                              <p>{{subtitle}}</p>
+                              {{#each buttons}}
+                                <a href="#" onclick="javascript:Botkit.quietSend(`{{payload}}`)">{{title}}</a></a>
+                              {{/each}}
+                            </div>
+                            {{/each}}
                         </div>
                         {{#message.files}}
                           <div class="file_attachment">

@@ -6,7 +6,7 @@
 const page_url = new URL(window.location.href)
 let server = page_url.searchParams.get('server')
 if(!server && typeof default_server !== 'undefined') server = default_server // defined in env.js
-else server = 'workbot-webchat-server.herokuapp.com'
+else if(!server) server = 'workbot-webchat-server.herokuapp.com'
 
 let query = page_url.searchParams.get('query')
 
