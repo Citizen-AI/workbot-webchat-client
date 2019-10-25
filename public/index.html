@@ -110,13 +110,12 @@
                             {{/each}}
 
                             {{#each message.attachment.payload.elements}}
-                            <div>
-                              <h3>{{title}}</h3>
-                              <p>{{subtitle}}</p>
-                              {{#each buttons}}
-                                <a href="#" onclick="javascript:Botkit.quietSend(`{{payload}}`)">{{title}}</a></a>
-                              {{/each}}
-                            </div>
+                            <card>
+                              {{#if buttons}}<a href="#" onclick="javascript:Botkit.quietSend(`{{buttons.0.payload}}`)">{{/if}}
+                              <header>{{title}}</header>
+                              <subtitle>{{subtitle}}</subtitle>
+                              {{#if buttons}}</a>{{/if}}
+                            </card>
                             {{/each}}
                         </div>
                         {{#message.files}}
