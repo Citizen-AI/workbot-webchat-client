@@ -166,9 +166,8 @@ a.button:hover {
   padding: 0.25rem;
   display: block;
 }
-/* #message_list {
-  min-height: 0;
-} */
+#message_list {
+}
 #message_window section {
   flex-grow: 1;
   /* flex-direction: column-reverse;
@@ -176,7 +175,7 @@ a.button:hover {
   overflow-y: auto;
 }
 #message_window section div div {
-  margin: 0.25rem;
+  margin: 6px;
   clear: both;
 }
 #message_window footer {

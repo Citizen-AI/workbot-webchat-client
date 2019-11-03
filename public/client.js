@@ -385,12 +385,16 @@ var Botkit = {
         return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
             s4() + '-' + s4() + s4() + s4();
     },
-    scrollBottom: function(){
-      var scrollingSection = document.getElementById('botScrollingSection');
+    scrollBottom: () => {
+      const scrollingSection = document.getElementById('botScrollingSection')
       if (scrollingSection) {
-        scrollingSection.scrollTop = scrollingSection.scrollHeight - scrollingSection.clientHeight;
+        scrollingSection.scrollTop = scrollingSection.scrollHeight - scrollingSection.clientHeight
       } 
-   },
+      const ml = document.getElementById('message_list')
+      const ss = document.getElementById('botScrollingSection')
+      const gap_to_top = ss.offsetHeight - ml.offsetHeight - 6
+      if(gap_to_top > 0) ml.style.marginTop = gap_to_top
+    },
     boot: function (user) {
 
         console.log('Booting up');
