@@ -286,7 +286,7 @@ var Botkit = {
         this.input.focus();
     },
     renderMessage: function (message) {
-        var that = this;
+      var that = this;
         if (!that.next_line) {
             that.next_line = document.createElement('div');
             that.message_list.appendChild(that.next_line);
@@ -301,6 +301,7 @@ var Botkit = {
         if (!message.isTyping) {
             delete (that.next_line);
         }
+        this.scrollBottom()
     },
     triggerScript: function (script, thread) {
         this.deliverMessage({
@@ -384,6 +385,12 @@ var Botkit = {
         return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
             s4() + '-' + s4() + s4() + s4();
     },
+    scrollBottom: function(){
+      var scrollingSection = document.getElementById('botScrollingSection');
+      if (scrollingSection) {
+        scrollingSection.scrollTop = scrollingSection.scrollHeight - scrollingSection.clientHeight;
+      } 
+   },
     boot: function (user) {
 
         console.log('Booting up');

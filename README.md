@@ -17,3 +17,4 @@ Use the `query` parameter to start the conversation from a particular point. E.g
 
 * https://github.com/howdyai/botkit-starter-web, which this is based on
 * http://showdownjs.com/, which turns in-message links into clickable links
+* [Patricia Goldweic](https://github.com/howdyai/botkit-starter-web/issues/35#issuecomment-425201475), for a work-around for the [Firefox column-reverse bug](https://bugzilla.mozilla.org/show_bug.cgi?id=1042151)
