@@ -312,6 +312,7 @@ var Botkit = {
             thread: thread
         });
     },
+    typing: function () { this.renderMessage({ isTyping: true }) },
     identifyUser: function (user) {
 
         user.timezone_offset = new Date().getTimezoneOffset();
@@ -436,10 +437,8 @@ var Botkit = {
         });
 
         that.on('typing', function () {
-            that.clearReplies();
-            that.renderMessage({
-                isTyping: true
-            });
+            that.clearReplies()
+            that.typing()
         });
 
         that.on('sent', function () {
@@ -530,7 +529,7 @@ var Botkit = {
   if (Botkit.getCookie('botkit_guid')) seen_before = true
 
   Botkit.boot()
-  Botkit.renderMessage({ isTyping: true })
+  Botkit.typing()
   Botkit.once('connected', () => {
     if(query)
       Botkit.send(query, null, true)
